@@ -1,4 +1,4 @@
-import { FileX } from "react-bootstrap-icons"
+import { flexbox } from "@mui/system"
 
 export const Header = (props: {
     color: {
@@ -31,18 +31,64 @@ export const Header = (props: {
         }}>
             <div style={{
                 paddingLeft: '20px',
-                height: '60px',
+                height: '100%',
                 display: 'flex',
                 alignItems: 'center',
-                fontSize:'x-large',
-                letterSpacing:'0.2rem'
+                fontSize: 'x-large',
+                letterSpacing: '0.2rem'
             }}>{props.title}</div>
 
             <div style={{
-                width: '92px',
-                height: '60px',
-                backgroundColor: 'white'
-            }}></div>
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    height: '90%',
+                    backgroundColor: 'black',
+                    borderRadius: '10px 0px 00px 10px',
+                }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            padding: '5px 0px 5px 8px'
+                        }}
+                    >
+                        <span
+                            style={{
+                                fontWeight: 'bold',
+                                paddingLeft: '5px',
+                                fontSize: 'x-small',
+                                color: 'white',
+                                textAlign: 'center'
+
+                            }}
+                        >FIU653asdf</span>
+                        <span
+                            style={{
+                                fontWeight: 'bold',
+                                paddingLeft: '5px',
+                                fontSize: 'x-small',
+                                color: '#f44',
+                                textAlign: 'center',
+                                backgroundColor: '#4006',
+                                textShadow: '0 0 4px #f44a',
+                            }}
+                        >Test1</span>
+
+
+                    </div>
+                    <img style={{
+                        padding:'3px',
+                        height: props.height,
+                        width: props.height
+                    }} src='digimon/digimon (1).gif' />
+                </div>
+            </div>
         </div>
     </div >
 

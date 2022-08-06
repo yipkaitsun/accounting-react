@@ -1,22 +1,33 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
-import { HomePage } from './components/homePage';
+import { useState } from 'react';
 import './font/OpenSans-Regular.ttf';
 import { Header } from './components/header';
 import { BackButton } from './components/back_button';
 import { Test1 } from './components/test1';
-import { Test2 } from './components/test2';
 
 
 
 function App() {
 
 
-  const setPageFn = (newPage: JSX.Element) => {
+  const setPageFn = (newPage: JSX.Element, curPage: JSX.Element) => {
     setPage(newPage)
+    setPageStack((prevState) => {
+      prevState.push(curPage)
+      return prevState
+    })
   }
+
+  const backfn = () => {
+    setPageStack((prevState) => {
+      setPage(prevState.pop() || page)
+      return prevState
+    })
+  }
+
+  const [pageStack, setPageStack] = useState<Array<JSX.Element>>([])
 
   const [page, setPage] = useState<JSX.Element>(
     <Test1 setPage={setPageFn} style={{ width: '78%' }} />
@@ -31,13 +42,13 @@ function App() {
           third: '#9d97f3'
         }}
         title={'test'}
-        height="69px"
+        height="40px"
       />
       <div
         className='backgound_layer'
         style={{
           width: '100vw',
-          height: 'calc(100vh - 69px)',
+          height: 'calc(100vh - 40px)',
           backgroundImage: 'url(/background_image.jpg)',
           backgroundSize: 'cover',
 
@@ -48,14 +59,16 @@ function App() {
           height: '100%'
         }}>
 
-          <BackButton click={() => { setPageFn(<Test2 setPage={setPageFn} style={{ width: '78%' }} />) }} />
-          <div style={{
-            width: '100vw',
-            overflowX: 'hidden',
-            height: 'calc( 100vh - 119px)',
-            display: 'flex',
-            justifyContent: 'flex-end'
-          }}>
+          <BackButton click={backfn} />
+          <div
+            className="scroll"
+            style={{
+              width: '100vw',
+              overflowX: 'hidden',
+              height: 'calc( 100% - 50px)',
+              display: 'flex',
+              justifyContent: 'center'
+            }}>
             {page}
           </div>
         </div>

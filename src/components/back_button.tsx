@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export const BackButton = (props: { click: () => void }) => {
     const [width, setWidth] = useState('94px')

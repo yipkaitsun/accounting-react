@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import { Tag } from "./tag"
 import { CheckCircle } from 'react-bootstrap-icons';
 export const Racing = (props: {
     name: string,
@@ -7,10 +5,6 @@ export const Racing = (props: {
     step: number
 
 }) => {
-    const [stepWidth, setStepWidth] = useState<number>(0)
-    useEffect(() => {
-        setStepWidth(props.step)
-    }, [])
 
     const image = [
         'digimon/digimon (1).gif',
@@ -34,11 +28,11 @@ export const Racing = (props: {
         }}>
             <div style={{
                 height: '78px',
-                width: `calc(${stepWidth * 10}% - 78px)`
+                width: `calc(${props.step * 10}% - 78px)`
             }} />
             <div style={{
                 height: '78px',
-                width: `calc(${(10 - stepWidth) * 10}% + 78px)`
+                width: `calc(${(10 - props.step) * 10}% + 78px)`
             }}>
                 <img style={{
                     padding: "5px",

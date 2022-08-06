@@ -1,4 +1,4 @@
-import { CSSProperties, MouseEventHandler, useState } from "react"
+import { CSSProperties,  useState } from "react"
 
 export const SelfButton = (props: {
     onClick: () => void
