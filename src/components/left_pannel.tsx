@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import { Expanses } from "./expanse"
 import { BackspaceReverse } from 'react-bootstrap-icons';
 import { pannelButtonsData } from "../utils/data_collection";
 import { HomePage } from "./homePage";
-export const LeftPannel = (props: { pageManager: React.Dispatch<React.SetStateAction<JSX.Element | undefined>> }) => {
+export const LeftPannel = (props: { pageManager: React.Dispatch<React.SetStateAction<JSX.Element>> }) => {
     const [pageId, setPageId] = useState(1)
 
     const setPage = (pageId: number) => {
@@ -16,9 +15,18 @@ export const LeftPannel = (props: { pageManager: React.Dispatch<React.SetStateAc
     }
 
     return <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ color:'white',height: "10vh", display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center', backgroundColor: "#a488d5" }}>
-            <p>Buddy</p>
-            <p>Alvis</p>
+        <div style={{
+            padding: '10px',
+            color: 'white',
+            height: "10vh",
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: "#a488d5"
+        }}>
+            <span style={{ height: '50%' }}>Buddy,</span>
+            <span style={{ height: '50%' }}>Alvis</span>
         </div>
         <>
             {pannelButtonsData.map(e => (

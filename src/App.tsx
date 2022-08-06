@@ -1,84 +1,65 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Expanses } from './components/expanse';
 import { useEffect, useState } from 'react';
-import { LeftPannel } from './components/left_pannel';
+import { HomePage } from './components/homePage';
+import './font/OpenSans-Regular.ttf';
+import { Header } from './components/header';
+import { BackButton } from './components/back_button';
+import { Test1 } from './components/test1';
+import { Test2 } from './components/test2';
+
+
 
 function App() {
 
-  const [groupList, setGroupList] = useState<Array<{ id: number, name: string }>>([])
-  const [transaction, setTransaction] = useState<Array<{ user: string, description: string, date: string, amount: number }>>([])
-  const [balance, setBalance] = useState<Array<{ userId: number, amount: number }>>([])
-  const [group, setGroup] = useState(null);
-  const [page, setPage] = useState<JSX.Element>()
-  useEffect(() => {
-    const group = [{ id: 1, name: "test1" }, { id: 2, name: "test2" }]
-    const transaction = [
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
 
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
+  const setPageFn = (newPage: JSX.Element) => {
+    setPage(newPage)
+  }
 
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 },
+  const [page, setPage] = useState<JSX.Element>(
+    <Test1 setPage={setPageFn} style={{ width: '78%' }} />
+  )
 
-      { user: "test", description: "test", date: "2021-11-3 03:43:23", amount: 30 }
-    ]
-    const balance = [{ userId: 1, amount: 20 }, { userId: 2, amount: -10 }, { userId: 3, amount: -10 }]
-    setGroupList(group);
-    setTransaction(transaction)
-    setBalance(balance)
-    /*    axios.get('api/group').then(e => {
-         setGroup(e.data);
-       }) */
-  }, [])
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }} >
-      <div style={{ height: '100vh', width: "20%", backgroundColor: '#313443' }}>
-        <LeftPannel pageManager={setPage} />
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }} >
+      <Header
+        color={{
+          main: '#292748',
+          second: '#3d3a67',
+          third: '#9d97f3'
+        }}
+        title={'test'}
+        height="69px"
+      />
+      <div
+        className='backgound_layer'
+        style={{
+          width: '100vw',
+          height: 'calc(100vh - 69px)',
+          backgroundImage: 'url(/background_image.jpg)',
+          backgroundSize: 'cover',
+
+        }}>
+        <div className="blur_layer" style={{
+          backgroundColor: '#2927488c',
+          width: '100vw',
+          height: '100%'
+        }}>
+
+          <BackButton click={() => { setPageFn(<Test2 setPage={setPageFn} style={{ width: '78%' }} />) }} />
+          <div style={{
+            width: '100vw',
+            overflowX: 'hidden',
+            height: 'calc( 100vh - 119px)',
+            display: 'flex',
+            justifyContent: 'flex-end'
+          }}>
+            {page}
+          </div>
+        </div>
       </div>
-      <div style={{ width: "80%", backgroundColor: "#f6f6f6" }}>
-        <div style={{ display: 'flex', height: '10vh', backgroundColor: 'white', alignItems: "center" }}>
-          <span>Balance Project</span></div>
-        {page}
-      </div>
-      {/*  <div style={{ marginLeft:80,marginRight:80 }}><Expanses param={groupList} />
-        <br />
-        <Table striped bordered hover >
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Description</th>
-              <th>Date</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transaction.map(e =>
-              <tr>
-                <td>{e.user}</td>
-                <td>{e.description}</td>
-                <td>{e.date}</td>
-                <td>{e.amount}</td>
-              </tr>
-            )}
-          </tbody>
-        </Table>
-      </div> */}
     </div >
   );
 }

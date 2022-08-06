@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "OpenSans";
+  src: local("GoldmanBold"),
+    url("./font/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Interstellar";
+  src: local("Interstellar"),
+    url("./font/Interstellar-Log.ttf") format("truetype");
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,3 +1,15 @@
+.font-face-gm {
+  font-family: "GoldmanBold";
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.interstellar {
+  font-family: "Interstellar";
+  font-size: smaller;
+  font-weight: bold;
+}
+
 .App {
   text-align: center;
 }
@@ -28,10 +40,25 @@
   color: #61dafb;
 }
 
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
