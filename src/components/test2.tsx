@@ -111,19 +111,19 @@ export const Test2 = (props: {
                                 },
                                 "& .MuiOutlinedInput-root:hover": {
                                     "& > fieldset": {
-                                        borderColor: description ? 'rgb(46 125 50 / 47%)' : 'grey',
+                                        borderColor: 'grey',
                                     }
                                 },
 
                                 fieldSet: {
-                                    borderColor: description ? 'rgb(46 125 50 / 47%)' : 'grey',
+                                    borderColor: 'grey',
                                     borderWidth: '2px'
                                 },
                                 label: {
-                                    color: description ? 'rgb(46 125 50 / 47%)' : '#6d6976'
+                                    color: '#6d6976'
                                 }
                             }}
-                            color={description ? 'success' : 'primary'}
+                            color={'primary'}
                             fullWidth
                             id="outlined-basic"
                             label="Description"
@@ -143,18 +143,18 @@ export const Test2 = (props: {
                                 },
                                 "& .MuiOutlinedInput-root:hover": {
                                     "& > fieldset": {
-                                        borderColor: amount > 0 ? 'rgb(46 125 50 / 47%)' : 'grey',
+                                        borderColor: 'grey',
                                     }
                                 },
                                 fieldSet: {
-                                    borderColor: amount > 0 ? 'rgb(46 125 50 / 47%)' : 'grey',
+                                    borderColor: 'grey',
                                     borderWidth: '2px'
                                 },
                                 label: {
-                                    color: amount > 0 ? 'rgb(46 125 50 / 47%)' : '#6d6976'
+                                    color: '#6d6976'
                                 }
                             }}
-                            color={amount > 0 ? 'success' : 'primary'}
+                            color={'primary'}
                             fullWidth
                             label="Amount"
                             variant="outlined"
@@ -173,7 +173,7 @@ export const Test2 = (props: {
                             flexDirection: 'column',
                             alignItems: 'flex-start',
                             width: '100%',
-                            border: `solid ${submitUser ? 'rgb(46 125 50 / 47%)' : "#120f14"}`,
+                            border: `solid ${"#120f14"}`,
                             borderRadius: '10px 10px 10px 10px',
 
                         }}>
