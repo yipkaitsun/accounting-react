@@ -87,9 +87,7 @@ export const Test1 = (props: {
 
             <SelfButton
                 onClick={() => {
-                    props.setPage(
-                        <Test2 setPage={props.setPage} style={{ width: '80%' }} />,
-                        <Test1 setPage={props.setPage} style={{ width: '78%' }} />)
+                    props.setPage(<Test2 setPage={props.setPage} style={{ width: '80%' }} />, <Test1 setPage={props.setPage} style={{ width: '78%' }} />)
                 }}
                 style={{
                     marginTop: '10px',

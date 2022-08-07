@@ -1,5 +1,3 @@
-import { flexbox } from "@mui/system"
-
 export const Header = (props: {
     color: {
         main: string,

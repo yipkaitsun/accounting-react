@@ -1,6 +1,6 @@
 import '../font/OpenSans-Regular.ttf'
 import { CSSProperties, useEffect, useState } from "react"
-import { TextField } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 
 
 
@@ -12,12 +12,20 @@ export const Test2 = (props: {
     useEffect(() => {
         setWidth('100vw')
     }, [])
+
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSubmitUser((event.target as HTMLInputElement).value);
+        setError(false);
+    };
+    const [error, setError] = useState(false);
     const [btnBackgroundColor, setBtnBackgroundColor] = useState('#151212c4')
     const [description, setDescription] = useState('')
     const [amount, setAmount] = useState(0)
+    const [submitUser, setSubmitUser] = useState('');
     const [width, setWidth] = useState<any>(0)
-    return <div style={{
 
+
+    return <div style={{
         display: 'flex',
         justifyContent: 'flex-end',
         width: '100%',
@@ -77,7 +85,6 @@ export const Test2 = (props: {
                     START
                 </div>
             </div>
-
             <div
                 className='scroll'
                 style={{
@@ -104,16 +111,16 @@ export const Test2 = (props: {
                                 },
                                 "& .MuiOutlinedInput-root:hover": {
                                     "& > fieldset": {
-                                        borderColor: description ? '#2e7d32' : 'grey',
+                                        borderColor: description ? 'rgb(46 125 50 / 47%)' : 'grey',
                                     }
                                 },
 
                                 fieldSet: {
-                                    borderColor: description ? '#2e7d32' : 'grey',
+                                    borderColor: description ? 'rgb(46 125 50 / 47%)' : 'grey',
                                     borderWidth: '2px'
                                 },
                                 label: {
-                                    color: description ? '#2e7d32' : '#6d6976'
+                                    color: description ? 'rgb(46 125 50 / 47%)' : '#6d6976'
                                 }
                             }}
                             color={description ? 'success' : 'primary'}
@@ -127,7 +134,6 @@ export const Test2 = (props: {
                         padding: '10px'
                     }}>
                         <TextField
-
                             onChange={(e) => setAmount(Number(e.target.value))}
                             id="filled-number"
                             sx={{
@@ -137,16 +143,15 @@ export const Test2 = (props: {
                                 },
                                 "& .MuiOutlinedInput-root:hover": {
                                     "& > fieldset": {
-                                        borderColor: amount > 0 ? '#2e7d32' : 'grey',
+                                        borderColor: amount > 0 ? 'rgb(46 125 50 / 47%)' : 'grey',
                                     }
                                 },
-
                                 fieldSet: {
-                                    borderColor: amount > 0 ? '#2e7d32' : 'grey',
+                                    borderColor: amount > 0 ? 'rgb(46 125 50 / 47%)' : 'grey',
                                     borderWidth: '2px'
                                 },
                                 label: {
-                                    color: amount > 0 ? '#2e7d32' : '#6d6976'
+                                    color: amount > 0 ? 'rgb(46 125 50 / 47%)' : '#6d6976'
                                 }
                             }}
                             color={amount > 0 ? 'success' : 'primary'}
@@ -160,13 +165,52 @@ export const Test2 = (props: {
                         />
                     </div>
 
+                    <div style={{
+                        padding: '10px'
+                    }}>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            width: '100%',
+                            border: `solid ${submitUser ? 'rgb(46 125 50 / 47%)' : "#120f14"}`,
+                            borderRadius: '10px 10px 10px 10px',
 
+                        }}>
+                            <span style={{ marginLeft: '10px', color: '#6d6976' }}>User Pay</span>
+                            <RadioGroup
+                                style={{ paddingLeft: '20px' }}
+                                value={submitUser}
+                                onChange={handleRadioChange}
+                            >
+                                <FormControlLabel
+                                    value="best"
+                                    control={
+                                        <Radio
+                                            sx={{
+                                                color: '#6d6976',
+                                                '&.Mui-checked': {
+                                                    color: 'rgb(46 125 50 / 47%)',
+                                                },
+                                                label: {
+                                                    color: 'rgb(46 125 50 / 47%)'
+                                                },
+                                            }}
+                                        />}
+                                    label={<Typography style={{ color: '#6d6976' }}>Test1</Typography>} />
+                                <FormControlLabel value="worst" control={<Radio
+                                    sx={{
+                                        color: '#6d6976',
+                                        '&.Mui-checked': {
+                                            color: 'rgb(46 125 50 / 47%)',
+                                        },
+                                    }} />}
+                                    label={<Typography style={{ color: '#6d6976' }}>Test2</Typography>} />
+                            </RadioGroup>
+                        </div>
+                    </div>
                 </div>
-
-
-
             </div>
         </div>
-
     </div >
 }

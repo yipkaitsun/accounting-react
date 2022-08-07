@@ -1,4 +1,4 @@
-import { CSSProperties,  useState } from "react"
+import { CSSProperties, useState } from "react"
 
 export const SelfButton = (props: {
     onClick: () => void
@@ -21,6 +21,6 @@ export const SelfButton = (props: {
             justifyContent: 'center',
             cursor: 'pointer',
         }}>
-        {props.title}
+        <span >{props.title}</span>
     </div >
 }
